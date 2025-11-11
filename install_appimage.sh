@@ -150,7 +150,7 @@ validate_input() {
 
     local mime
     mime=$(file --mime-type -b "$APPIMAGE")
-    if [[ "$mime" != "application/octet-stream" && "$mime" != "application/x-executable" ]]; then
+    if [[ "$mime" != "application/octet-stream" && "$mime" != "application/x-executable" && "$mime" != "application/x-pie-executable" ]]; then
         echo "Warning: '$APPIMAGE' doesn't seem like a typical binary AppImage. (MIME: $mime)"
         if ! $FORCE; then
             echo "Use -f to force the installation despite this warning."
